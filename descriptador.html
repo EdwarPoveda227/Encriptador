@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="estilo.css">
+   <script src="codigo.js"></script>
+    <title>Descriptador</title>
+  </head>
+  <body>
+   <div id="contenedormayor"> 
+    <div id="contenedormayordos">
+    <header>
+       <img id="logoAlura" src="img/vector.png" alt="logo de alura">
+    </header>
+    <main>
+        <section>
+          <textarea class="cajatextouno" cols="46" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+          <div id="iconotexto">
+            <img src="img/icono.png">
+            <h6 class="textopequeño">Solo letras minusculas y sin acentos</h6>
+          </div>
+          <div id="botones">
+             <button class="Botnencripatador" onclick="encriptador()">Encriptar</button>
+             <button class="Botndesencripatador" onclick="desencriptar()">Desencriptar</button>
+          </div>
+        </section>
+        <section>
+           <textarea id="cajamensaje" cols="20" rows="10"></textarea>
+           <div>
+             <button class="botncopiar" onclick=" textCopiar()">Copiar</button>
+           </div>
+        </section>
+    </main>
+    <footer>
+      <h4>Realizado por Edwar Poveda Melo</h4>
+    </footer>
+    </div>
+    </div>
+  <script>
+    let textEncriptar= document.querySelector(".cajatextouno");
+    let textResultado = document.querySelector("#cajamensaje");
+    
+    let botnEncriptar= document.querySelector(".Botnencripatador");
+
+     let botnDesencriptar= document.querySelector(".Botndesencripatador");
+     let copiar=document.querySelector(".botncopiar");
+     copiar.style.display = "none";
+
+     function encriptar() {
+       let mensaje= textEncriptar.value;
+       let mensajeEncriptado=mensaje
+       
+       .replaceAll("e","enter")
+       .replaceAll("i","imes")
+       .replaceAll("o","ober")
+       .replaceAll("a","ai")
+       .replaceAll("u","ufat");
+
+       textResultado.value = mensajeEncriptado
+
+       copiar.style.display = "block";
+
+       textResultado.style.backgroundImage = "none";
+
+     }
+
+
+      function desencriptar() {
+       let mensajeEncriptado= textEncriptar.value;
+       let mensaje=mensajeEncriptado
+       .replaceAll("enter","e")
+       .replaceAll("imes","i")
+       .replaceAll("ober","o")
+       .replaceAll("ai","a")
+       .replaceAll("ufat","u");
+
+       textEncriptar.value = mensaje
+     }
+    
+     function textCopiar() {
+      let mensajeEncriptado = textResultado.value;
+       navigator.clipboard.writeText(mensajeEncriptado);
+    }
+
+    botnEncriptar.onclick = encriptar;
+
+    botnDesencriptar.onclick =desencriptar;
+
+    copiar.onclick.textCopiar;
+
+
+   
+
+  </script>
+
+  </body>
+</html>
+
+
+
+
